@@ -24,6 +24,15 @@ const (
 	tValue
 )
 
+var tokenMap = []string{
+	"tLeftBracket",
+	"tRightBracket",
+	"tEqualSign",
+	"tSection",
+	"tKey",
+	"tValue",
+}
+
 const (
 	leftBracket  = '['
 	rightBracket = ']'
@@ -143,6 +152,8 @@ func TestParseIni(t *testing.T) {
 
 	i := 0
 	l := lex.NewLexer("", str, lexStart)
+	lex.UpdateTokenTypes(tokenMap)
+	defer lex.RestoreTokenTypes()
 
 	for {
 		token = l.NextToken()

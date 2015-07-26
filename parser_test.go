@@ -66,7 +66,7 @@ func TestStringer(t *testing.T) {
 		Line:  1,
 	}
 
-	expected := "[TokenType(3) 1:5+6] <--->"
+	expected := "[TokenType(4) 1:5+6] <--->"
 	got := tok.String()
 	if got != expected {
 		t.Errorf("Incurrect stringer:\ngot: %v\nexpected: %v", got, expected)
